@@ -1,0 +1,220 @@
+:root {
+    /* Based on everblush theme (previously called UWU.vim */
+    /* https://github.com/Everblush/everblush.vim */
+    --gui01: #22292b;
+    --gui02: #e06e6e;
+    --gui03: #8ccf7e;
+    --gui04: #e5c76b;
+    --gui05: #67b0e8;
+    --gui06: #c47fd5;
+    --gui07: #6cd0ca;
+    --gui08: #b3b9b8;
+    --gui09: #3b4244;
+    --gui0A: #ef7d7d;
+    --gui0B: #9bdead;
+    --gui0C: #f4d67a;
+    --gui0D: #6cb5ed;
+    --gui0E: #ce89df;
+    --gui0F: #67cbe7;
+    --gui0G: #bdc3c2;
+    --gui0H: #181f21;
+    --gui0I: #dadada;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-style: normal;
+    font-size: 1.2rem;
+    line-height: 1.45;
+}
+
+/* General Body */
+body {
+    display: flex;
+    flex-wrap: wrap;
+    background: #232433;
+}
+
+
+/* Coloring */
+.fa-github,
+.h2-l,
+.fa-bolt {
+    color: var(--gui04);
+}
+
+.fa-twitter,
+.fa-linkedin-in,
+.h2-r,
+.front {
+    color: var(--gui05);
+}
+
+h1,
+#inner-bottom-container .input {
+    color: var(--gui08);
+}
+
+.container,
+footer {
+    background: var(--gui0H);
+}
+
+#inner-bottom-container .input {
+    background: var(--gui01);
+}
+
+footer,
+#inner-bottom-container .input::placeholder {
+    color: var(--gui09);
+}
+
+.front,
+.pushable {
+    background: #323C3F;
+}
+
+/* Side Navigation Bar (social media pretty much) */
+body nav {
+    height: 100%;
+    padding: 30px 16px;
+    position: fixed;
+    background: #151C1E;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+/* Generators Password grid */
+#inner-bottom-container {
+    display: grid;
+    grid-gap: 20px;
+
+    /* grid-template-columns: ; */
+    grid-template-rows: repeat(2, auto);
+    grid-template-rows: 1fr auto;
+    grid-auto-flow: column;
+}
+
+#inner-bottom-container .input {
+    text-align: center;
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    height: 3.25rem;
+    font-size: 1.25rem;
+    /* z-index: 10; */
+}
+
+.box {
+    cursor: pointer;
+}
+
+/* Generate Button thingy - Comeau's 3d button*/
+.pushable {
+    position: relative;
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    outline-offset: 4px;
+}
+
+.front {
+    transition:
+        transform 600ms cubic-bezier(.3, .7, .4, 1);
+}
+
+.pushable:hover .front {
+    transform: translateY(-11px);
+    transition:
+        transform 250ms cubic-bezier(.23, .7, .4, 1.75);
+}
+
+.pushable:active .front {
+    transform: translateY(-20px);
+    transition: transform 124ms;
+}
+
+.pushable {
+    background: #22292B;
+    border: none;
+    border-radius: 12px;
+    padding: 0;
+    cursor: pointer;
+}
+
+.front {
+    display: block;
+    padding: 0.75rem 2.625rem;
+    border-radius: 12px;
+    font-size: 1.25rem;
+    transform: translateY(-9px);
+}
+
+.pushable:active .front {
+    transform: translateY(-2px);
+}
+
+.pushable:focus:not(:focus-visible) {
+    outline: none;
+}
+
+.shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background: hsl(0deg 0% 0% / 0.20);
+    transform: translateY(3px);
+    will-change: transform;
+    transition:
+        transform 600ms cubic-bezier(.3, .7, .4, 1);
+}
+
+/* Outer container (The thing around the app card) */
+.outer-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Font thingy */
+.container,
+#inner-bottom-container .input,
+.front {
+    font-family: 'Itim', cursive;
+}
+
+/* The app card itself */
+.container {
+    border-radius: 20px;
+    padding: 1rem 2.3125rem 1.75rem;
+    /* max-width: 36.25rem; */
+}
+
+/* Social Media Icons */
+.fa-brands {
+    font-size: 2.75rem;
+}
+
+/* Took from w3schools */
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+/* Password outputs */
+#inner-bottom-container .input[type="text"] {
+    pointer-events: none;
+}
