@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/e99c120c11.js" crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&family=Itim&display=swap" rel="stylesheet">
@@ -36,40 +37,70 @@
 <body onload="main()">
     <nav>
         <ul>
-            <li><i class="fa-brands fa-linkedin-in"></i></li>
-            <li><i class="fa-brands fa-github"></i></li>
-            <li><i class="fa-brands fa-twitter"></i></li>
+            <li>
+                <a href="https://www.linkedin.com/in/pikachu-%E2%9A%A1/">
+                    <i class=" fa fa-brands fa-linkedin-in"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/FrenzyExists">
+                    <i class="fa fa-brands fa-github"></i>
+                </a>
+
+            </li>
+            <li>
+                <a href="https://twitter.com/Not__Pikachu">
+                    <i class="fa fa-brands fa-twitter"></i>
+                </a>
+
+            </li>
         </ul>
     </nav>
+    <span class="notification">
+        Copied to Clipboard!
+    </span>
     <div class="outer-container">
         <div class="container">
-            <div class="toggler-div">
-                <label class="switch">
-                    <input type="checkbox">
-                    <span class="slider round"></span>
-                </label>
-            </div>
             <div class="inner-container">
                 <div class="inner-top-container">
                     <h1>Generate</h1>
-                    <h2><span class="h2-l">secure reliable</span> <span class="h2-r">passwords</span></h2>
-                    <div>
-                        <div class=option-wrid>
+                    <h2><span class="h2-l">secure reliable </span><span class="h2-r">passwords</span></h2>
+                    <div style="display: flex;flex-wrap: wrap;flex-direction: column;">
+                        <div class=options>
                             <div>
                                 <p class="description">Include uppercase</p>
-                                <label for=""><input class="checkmark" id="uppercase" type="checkbox" checked><span></span></label>
+                                <label class="switch"><input class="checkmark" id="uppercase" type="checkbox" checked><span class="slider round"></span></label>
                             </div>
                             <div>
                                 <p class="description">Include lowercase</p>
-                                <label for=""><input class="checkmark" id="lowercase" type="checkbox" checked><span></span></label>
+                                <label class="switch"><input class="checkmark" id="lowercase" type="checkbox" checked><span class="slider round"></span></label>
                             </div>
-                        </div>
+                            <div>
+                                <p class="description">Include numbers</p>
+                                <label class="switch"><input class="checkmark" id="numbers" type="checkbox" checked><span class="slider round"></span></label>
+                            </div>
+                            <div>
+                                <p class="description">Include symbols</p>
+                                <label class="switch"><input class="checkmark" id="symbols" type="checkbox" checked><span class="slider round"></span></label>
+                            </div>
+                            <div style="justify-content: center !important;">
+                                <h4>Password length</h4>
+                            </div>
+                            <div style="flex-direction: column; padding: 0;">
+                                <div class="range-slider">
+                                    <input id="password-length" type="range" min="0" max="64" step="2" value="32">
+                                </div>
+                                <div id="h4-container">
+                                    <h4 id="current">32</h4>
+                                </div>
+                            </div>
 
-                        <br>
-                        <button id="gen" class="pushable">
+                        </div>
+                        <br style="margin: 1.25rem;" />
+                        <button id=" gen" class="pushable" type="button" onclick="gen()">
                             <span class="shadow"></span>
                             <span class="front">
-                                <i class="fa-solid fa-bolt"></i> Generate
+                                <i class="fas fa-solid fa-bolt"></i> Generate
                             </span>
                         </button>
                     </div>

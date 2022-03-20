@@ -2,23 +2,18 @@
     /* Based on everblush theme (previously called UWU.vim */
     /* https://github.com/Everblush/everblush.vim */
     --gui01: #22292b;
-    --gui02: #e06e6e;
-    --gui03: #8ccf7e;
     --gui04: #e5c76b;
     --gui05: #67b0e8;
-    --gui06: #c47fd5;
-    --gui07: #6cd0ca;
     --gui08: #b3b9b8;
     --gui09: #3b4244;
-    --gui0A: #ef7d7d;
-    --gui0B: #9bdead;
     --gui0C: #f4d67a;
     --gui0D: #6cb5ed;
-    --gui0E: #ce89df;
-    --gui0F: #67cbe7;
     --gui0G: #bdc3c2;
     --gui0H: #181f21;
     --gui0I: #dadada;
+    --bg: #232433;
+    --bgnav: #151C1E;
+    --bg4: #323C3F;
 }
 
 * {
@@ -30,33 +25,48 @@
     font-style: normal;
     font-size: 1.2rem;
     line-height: 1.45;
+    font-weight: normal;
 }
 
 /* General Body */
 body {
     display: flex;
     flex-wrap: wrap;
-    background: #232433;
+    background: var(--bg);
 }
 
 
 /* Coloring */
-.fa-github,
+.fa-github:hover,
 .h2-l,
 .fa-bolt {
     color: var(--gui04);
 }
 
-.fa-twitter,
-.fa-linkedin-in,
+.fa-twitter:hover,
+.fa-linkedin-in:hover,
 .h2-r,
 .front {
     color: var(--gui05);
 }
 
 h1,
-#inner-bottom-container .input {
+#inner-bottom-container .input,
+.description,
+h4 {
     color: var(--gui08);
+}
+
+h1 {
+    font-size: 3.25rem;
+}
+
+h2 span {
+    font-size: 2rem;
+}
+
+h4 {
+    font-size: 1.75rem;
 }
 
 .container,
@@ -75,17 +85,33 @@ footer,
 
 .front,
 .pushable {
-    background: #323C3F;
+    background: var(--bg4);
 }
+
+a>i:hover {
+    transition: ease 0.1s;
+}
+
+i {
+    color: #dadada3b;
+    transition: ease 0.2s;
+}
+
 
 /* Side Navigation Bar (social media pretty much) */
 body nav {
     height: 100%;
     padding: 30px 16px;
     position: fixed;
-    background: #151C1E;
+    background: var(--bgnav);
     display: flex;
     flex-direction: column-reverse;
+    z-index: 100;
+}
+
+nav ul li {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 /* Generators Password grid */
@@ -102,7 +128,7 @@ body nav {
 #inner-bottom-container .input {
     text-align: center;
     width: 100%;
-    border-radius: 10px;
+    border-radius: 14px;
     border: none;
     height: 3.25rem;
     font-size: 1.25rem;
@@ -113,7 +139,13 @@ body nav {
     cursor: pointer;
 }
 
+.box input {
+    box-shadow: 0px 2px 5px 1px var(--gui01);
+}
+
+
 /* Generate Button thingy - Comeau's 3d button*/
+
 .pushable {
     position: relative;
     border: none;
@@ -121,6 +153,8 @@ body nav {
     padding: 0;
     cursor: pointer;
     outline-offset: 4px;
+    margin: auto;
+
 }
 
 .front {
@@ -140,9 +174,9 @@ body nav {
 }
 
 .pushable {
-    background: #22292B;
+    background: var(--gui01);
     border: none;
-    border-radius: 12px;
+    border-radius: 14px;
     padding: 0;
     cursor: pointer;
 }
@@ -150,8 +184,8 @@ body nav {
 .front {
     display: block;
     padding: 0.75rem 2.625rem;
-    border-radius: 12px;
-    font-size: 1.25rem;
+    border-radius: 14px;
+    font-size: 1.55rem;
     transform: translateY(-9px);
 }
 
@@ -169,8 +203,8 @@ body nav {
     left: 0;
     width: 100%;
     height: 100%;
-    border-radius: 12px;
-    background: hsl(0deg 0% 0% / 0.20);
+    border-radius: 14px;
+    background: #22292b33;
     transform: translateY(3px);
     will-change: transform;
     transition:
@@ -189,13 +223,19 @@ body nav {
 /* Font thingy */
 .container,
 #inner-bottom-container .input,
-.front {
+.front,
+.notification,
+footer {
     font-family: 'Itim', cursive;
+}
+
+.description {
+    font-size: 1.15rem;
 }
 
 /* The app card itself */
 .container {
-    border-radius: 20px;
+    border-radius: 14px;
     padding: 1rem 2.3125rem 1.75rem;
     /* max-width: 36.25rem; */
 }
@@ -217,4 +257,226 @@ footer {
 /* Password outputs */
 #inner-bottom-container .input[type="text"] {
     pointer-events: none;
+}
+
+/* Switch - General */
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    background-color: var(--gui01);
+    box-shadow: 0px 2px 5px 1px var(--gui01);
+}
+
+.slider:before {
+    position: absolute;
+    content: '';
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+input:checked+.slider {
+    background-color: var(--gui01);
+}
+
+input:focus+.slider {
+    box-shadow: 0px 2px 5px 1px var(--gui01);
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 50%;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+    background-color: var(--gui05);
+}
+
+input:checked+.slider.round:before {
+    background-color: var(--gui04);
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.options {
+    display: grid;
+    grid-template-columns: 350px 330px;
+    grid-template-rows: 74px 78px 78px;
+    grid-auto-flow: column;
+    justify-content: space-between;
+
+}
+
+.options div {
+    display: inline-flex;
+    margin: auto auto;
+    justify-content: space-between;
+
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 0 30px;
+
+}
+
+/* Switch CHECKS */
+.range-slider {
+    background: var(--bg4);
+    height: 2.35rem;
+    border-radius: 14px;
+    box-shadow: 0px 2px 5px 1px var(--gui01);
+    justify-content: center !important;
+    z-index: 10;
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+    margin: -15px;
+    background: transparent;
+    width: 100%;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border-radius: 14px;
+    margin-top: -0.5rem;
+    box-shadow: 0px 2px 5px 1px var(--gui01);
+    background-color: var(--gui08);
+    border: none;
+    cursor: pointer;
+    height: 1.45rem;
+    width: 0.64rem;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    height: 9px;
+    background: var(--gui05);
+    border-radius: 14px;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+input[type=range]:hover::-webkit-slider-runnable-track {
+    background: var(--gui04);
+}
+
+input[type=range]::-moz-range-track {
+    height: 0.45rem;
+    background: var(--gui05);
+    border-radius: 14px;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+input[type=range]:hover::-moz-range-track {
+    background: var(--gui04);
+}
+
+input[type=range]::-moz-range-thumb {
+    background-color: var(--gui08);
+    border-color: transparent;
+    box-shadow: 0px 2px 5px 1px var(--gui01);
+    cursor: pointer;
+    border-radius: 14px;
+    height: 1.45rem;
+    width: 0.64rem;
+}
+
+.range p {
+    color: var(--gui08);
+    padding: 0;
+}
+
+.options div {
+    margin: auto 0;
+    width: 100%;
+}
+
+#h4-container {
+    max-width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+#h4-container h4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    font-size: 1.15rem;
+    transform-origin: center -10px;
+    transform: translateX(-50%);
+    transition: margin-top 0.15s ease-in-out, opacity 0.15s ease-in-out;
+
+    opacity: 0;
+    margin-top: -50px;
+    z-index: 1;
+}
+
+.range-slider:active+#h4-container h4 {
+    opacity: 100%;
+    margin-top: 0;
+}
+
+.notification.active {
+    opacity: 100%;
+    margin-top: 0;
+}
+
+.notification {
+    background-color: var(--gui0H);
+    color: #67b0e8;
+    position: absolute;
+    padding: 1.5rem;
+    border-radius: 14px;
+    transform-origin: center;
+    transform: translateX(76vw) translateY(4vh);
+    transition: margin-top 300ms cubic-bezier(.3, .7, .4, 1), opacity 0.15s ease-in-out;
+    font-size: 1.5rem;
+    opacity: 0;
+    margin-top: -210px;
+    z-index: 10;
 }
