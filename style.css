@@ -7,10 +7,7 @@
     --gui08: #b3b9b8;
     --gui09: #3b4244;
     --gui0C: #f4d67a;
-    --gui0D: #6cb5ed;
-    --gui0G: #bdc3c2;
     --gui0H: #181f21;
-    --gui0I: #dadada;
     --bg: #232433;
     --bgnav: #151C1E;
     --bg4: #323C3F;
@@ -97,7 +94,6 @@ i {
     transition: ease 0.2s;
 }
 
-
 /* Side Navigation Bar (social media pretty much) */
 body nav {
     height: 100%;
@@ -132,7 +128,6 @@ nav ul li {
     border: none;
     height: 3.25rem;
     font-size: 1.25rem;
-    /* z-index: 10; */
 }
 
 .box {
@@ -142,7 +137,6 @@ nav ul li {
 .box input {
     box-shadow: 0px 2px 5px 1px var(--gui01);
 }
-
 
 /* Generate Button thingy - Comeau's 3d button*/
 
@@ -154,7 +148,6 @@ nav ul li {
     cursor: pointer;
     outline-offset: 4px;
     margin: auto;
-
 }
 
 .front {
@@ -338,18 +331,15 @@ input:checked+.slider.round:before {
     grid-template-rows: 74px 78px 78px;
     grid-auto-flow: column;
     justify-content: space-between;
-
 }
 
 .options div {
     display: inline-flex;
     margin: auto auto;
     justify-content: space-between;
-
     margin-top: auto;
     margin-bottom: auto;
     padding: 0 30px;
-
 }
 
 /* Switch CHECKS */
